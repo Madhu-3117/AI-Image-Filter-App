@@ -5,7 +5,7 @@ from PIL import Image
 import os
 from filters import cartoonify, pencil_sketch, sepia, adjust_brightness_contrast, blur_faces
 
-st.title("🎨 AI Image Filter App - Enhanced")
+st.title("AI Image Filter App - Enhanced")
 
 uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "jpeg", "png"])
 
@@ -14,7 +14,7 @@ if uploaded_file:
     image_np = np.array(image)
     image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
 
-    st.image(image, caption="📸 Original Image", use_column_width=True)
+    st.image(image, caption=" Original Image", use_column_width=True)
 
     filter_option = st.selectbox(
         "Choose a filter",
@@ -36,7 +36,7 @@ if uploaded_file:
         contrast = st.slider("Contrast", 0.5, 2.0, 1.0)
         output_image = adjust_brightness_contrast(image_cv, brightness, contrast)
 
-    st.image(cv2.cvtColor(output_image, cv2.COLOR_BGR2RGB), caption="✨ Processed Image", use_column_width=True)
+    st.image(cv2.cvtColor(output_image, cv2.COLOR_BGR2RGB), caption=" Processed Image", use_column_width=True)
 
     # Save option
     save_path = f"outputs/processed.png"
